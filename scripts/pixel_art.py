@@ -77,11 +77,11 @@ class Layer:
         return f"<g{attrs}>{body}</g>"
 
 
-def save(name, w, h, scale, layers, title):
+def save(name, w, h, scale, layers, title, css=""):
     OUT.mkdir(exist_ok=True)
     (OUT / name).write_text(
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w*scale}" height="{h*scale}" '
-        f'role="img" aria-label="{title}"><title>{title}</title><style>{CSS}</style>'
+        f'role="img" aria-label="{title}"><title>{title}</title><style>{CSS}{css}</style>'
         f'<g class="p">{"".join(l.svg() for l in layers)}</g></svg>\n')
 
 

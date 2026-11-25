@@ -1,39 +1,60 @@
 <div align="center">
-  <img src="assets/banner.svg" width="100%" alt="Pixel art desk at dusk: the name VINH in the night sky, a cat, a monitor with code and a blinking server rack">
+  <img src="assets/header.svg" width="100%" alt="Pixel art rooftop at night: the name VINH in a starry sky, a full moon, city lights, a laptop and a cat">
+
+  <h3>Hi, I'm Vinh</h3>
+  <p>Software Engineering student focused on Backend Development and AI Systems.</p>
 </div>
 
-### Hi, I'm Vinh
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><img src="assets/icon-about.svg" width="24" align="top" alt=""> About</h3>
+      <p><b>Building</b><br>AI Gateway and backend projects</p>
+      <p><b>Learning</b><br>AI Agents, LLMs, System Design</p>
+      <p><b>Goal</b><br>Backend / AI Engineer</p>
+    </td>
+    <td width="50%" valign="top">
+      <h3><img src="assets/icon-stack.svg" width="24" align="top" alt=""> Tech stack</h3>
+      <p><b>Backend</b><br><code>Java</code> <code>Spring Boot</code> <code>Python</code> <code>FastAPI</code></p>
+      <p><b>Database</b><br><code>PostgreSQL</code> <code>SQL Server</code></p>
+      <p><b>Tools</b><br><code>Git</code> <code>Docker</code> <code>Postman</code> <code>Linux</code></p>
+    </td>
+  </tr>
+</table>
 
-Software Engineering student focused on Backend Development and AI Systems.
-
-```text
-   /\_/\        vinh@github
-  ( o.o )       ------------------------------------------
-   > ^ <        Role       Software Engineering student
-  /     \       Building   AI Gateway & backend projects
- |       |      Learning   AI Agents, LLMs, System Design
- |  | |  |      Backend    Java, Spring Boot, Python, FastAPI
- (__|_|__)_/    Database   PostgreSQL, SQL Server
-                Tools      Git, Docker, Postman, Linux
-                Goal       Backend / AI Engineer
-```
-
-### Inventory
+<img src="assets/divider.svg" width="100%" alt="">
 
 <div align="center">
-  <img src="assets/stack.svg" width="100%" alt="Tech stack: Java, Spring Boot, Python, FastAPI, PostgreSQL, SQL Server, Docker, Git, Linux, Postman">
+
+<h3><img src="assets/icon-contrib.svg" width="24" align="top" alt=""> Contributions</h3>
+
+<img src="profile-3d-contrib/profile-night.svg" width="100%" alt="3D calendar of the last year of contributions, with commit languages and activity types">
+
 </div>
 
-### Overview
+<img src="assets/divider.svg" width="100%" alt="">
 
 <div align="center">
-  <img src="assets/stats.svg" width="100%" alt="Share of code by programming language, and commits in the last 12 months grouped by each repository's main language">
-</div>
 
-<sub>Public repositories only, refreshed daily. Commits cover the last 12 months; each counts toward its repository's main language.</sub>
+<h3><img src="assets/icon-overview.svg" width="24" align="top" alt=""> Overview</h3>
 
-<br>
+<!-- overview:start -->
 
-<div align="center">
-  <img src="assets/footer.svg" width="100%" alt="A pixel cat walking along a shelf">
+| Contributions this past year | Active days | Longest streak | Best day |
+| :---: | :---: | :---: | :---: |
+| **84** | **33** | **5 days** | **14 on Sep 18** |
+
+| Top languages | Code | Commits |
+| :---: | :---: | :---: |
+| Python | 51% | 19 |
+| Jupyter Notebook | 23% | 1 |
+| TypeScript | 14% | 10 |
+| CSS | 7% | 5 |
+| Java | 3% | - |
+| JavaScript | <1% | 9 |
+
+<!-- overview:end -->
+
+<sub>Refreshed daily. Languages and commits cover public repositories; commits count toward each repository's main language over the last 12 months.</sub>
+
 </div>

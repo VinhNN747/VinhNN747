@@ -1,0 +1,30 @@
+name: GitHub-Profile-3D-Contrib
+on:
+  schedule:
+    - cron: "0 20 * * *" # 03:00 in Vietnam
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/profile-3d.json", ".github/workflows/profile-3d.yml"]
+permissions:
+  contents: write
+concurrency: stats
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: yoshi389111/github-profile-3d-contrib@7d95e7d4cdc028dd1e1cbd957d65f35efb12ae39 # v0.9.3
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          USERNAME: ${{ github.repository_owner }}
+          SETTING_JSON: .github/profile-3d.json
+      - name: Commit if changed
+        run: |
+          git add profile-3d-contrib
+          git diff --cached --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update 3D contributions"
+          git pull --rebase
+          git push

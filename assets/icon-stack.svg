@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="32" height="32" role="img" aria-label="stack"><title>stack</title><style>
+.p{shape-rendering:crispEdges}
+@keyframes a{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes tw{0%,100%{opacity:1}50%{opacity:.15}}
+@keyframes ty{0%{opacity:0}1%,90%{opacity:1}91%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.alt{opacity:0}}
+</style><g class="p"><g><path fill="#0e1634" d="M1 0h14v1h-14zM0 1h16v1h-16zM0 2h16v1h-16zM0 3h16v1h-16zM0 4h3v1h-3zM13 4h3v1h-3zM0 5h3v1h-3zM5 5h1v1h-1zM7 5h1v1h-1zM9 5h1v1h-1zM11 5h1v1h-1zM13 5h3v1h-3zM0 6h3v1h-3zM13 6h3v1h-3zM0 7h16v1h-16zM0 8h3v1h-3zM13 8h3v1h-3zM0 9h3v1h-3zM5 9h1v1h-1zM7 9h1v1h-1zM9 9h1v1h-1zM11 9h1v1h-1zM13 9h3v1h-3zM0 10h3v1h-3zM13 10h3v1h-3zM0 11h16v1h-16zM0 12h16v1h-16zM0 13h16v1h-16zM0 14h16v1h-16zM1 15h14v1h-14z"/><path fill="#8d98b8" d="M3 4h10v1h-10zM3 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM10 5h1v1h-1zM12 5h1v1h-1zM3 6h10v1h-10zM3 8h10v1h-10zM3 9h1v1h-1zM6 9h1v1h-1zM8 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM3 10h10v1h-10z"/><path fill="#6fd08c" d="M4 5h1v1h-1z"/><path fill="#ffd98a" d="M4 9h1v1h-1z"/></g></g></svg>

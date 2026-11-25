@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-"""Draws assets/stats.svg from public GitHub data.
+"""Refreshes the Overview section of README.md from GitHub data.
 
     GITHUB_TOKEN=... python3 scripts/stats.py <username>
-    python3 scripts/stats.py --placeholder
 """
 import json
 import os
 import sys
 import urllib.request
 from collections import Counter
+from datetime import date
+from pathlib import Path
 
-from pixel_art import Layer, save, text_width
-
+README = Path(__file__).resolve().parent.parent / "README.md"
+START, END = "<!-- overview:start -->", "<!-- overview:end -->"
 TOP = 6
 QUERY = """query($login: String!, $after: String) {
   user(login: $login) {
@@ -20,6 +21,7 @@ QUERY = """query($login: String!, $after: String) {
       nodes { languages(first: 50) { edges { size node { name } } } }
     }
     contributionsCollection {
+      contributionCalendar { weeks { contributionDays { date contributionCount } } }
       commitContributionsByRepository(maxRepositories: 100) {
         contributions { totalCount }
         repository { isPrivate primaryLanguage { name } }
@@ -57,59 +59,58 @@ def fetch(login):
         if not c["repository"]["isPrivate"]:
             lang = c["repository"]["primaryLanguage"]
             commits[lang["name"] if lang else "No code"] += c["contributions"]["totalCount"]
-    return sizes, commits
-
-
-def top(counter):
-    rows = [r for r in counter.most_common() if r[1]]
-    if len(rows) > TOP:
-        rows = rows[:TOP - 1] + [("Other", sum(v for _, v in rows[TOP - 1:]))]
-    return rows
-
-
-def fit(label, width):
-    while text_width(label) > width:
-        label = label[:-1].rstrip()
-    return label
+    weeks = user["contributionsCollection"]["contributionCalendar"]["weeks"]
+    days = {date.fromisoformat(d["date"]): d["contributionCount"] for w in weeks for d in w["contributionDays"]}
+    return sizes, commits, days
 
 
 def percent(v, total):
     return "<1%" if v / total < .005 else f"{v / total:.0%}"
 
 
-def draw(sizes, commits, empty="No public data"):
-    W, pw, rowh = 212, 103, 13
-    panels = [
-        ("Code by language", top(sizes), sum(sizes.values()), "#4fa896", percent),
-        ("Commits by language", top(commits), sum(commits.values()), "#f0985a", lambda v, _: str(v)),
-    ]
-    H = 4 + 14 + max([1] + [len(p[1]) for p in panels]) * rowh + 3
-    b = Layer(W, H); b.r(0, 0, W, H, "#1d141b")
-    for i, (title, rows, total, color, fmt) in enumerate(panels):
-        x = 2 + i * (pw + 2)
-        b.r(x, 2, pw, H - 4, "#8a5138"); b.r(x + 1, 3, pw - 2, H - 6, "#33232f")
-        b.r(x + 1, 3, pw - 2, 11, "#12303f")
-        b.text(x + 4, 6, title, "#f7e8c3")
-        if not rows:
-            b.text(x + 4, 19, empty, "#b9a88f")
-            continue
-        peak, full = max(v for _, v in rows), pw - 8
-        for k, (name, v) in enumerate(rows):
-            y, val = 17 + k * rowh, fmt(v, total)
-            b.text(x + pw - 4 - text_width(val), y, val, "#f7e8c3")
-            b.text(x + 4, y, fit(name, full - text_width(val) - 4), "#f7e8c3")
-            b.r(x + 4, y + 7, full, 3, "#241820")
-            b.r(x + 4, y + 7, max(1, round(full * v / peak)), 3, color)
-    alt = "; ".join(f"{t}: " + (", ".join(f"{n} {f(v, tot)}" for n, v in r) or empty)
-                    for t, r, tot, _, f in panels)
-    save("stats.svg", W, H, 4, [b], alt.replace("&", "&amp;").replace("<", "&lt;").replace('"', "&quot;"))
+def longest_streak(days):
+    best = run = 0
+    for d in sorted(days):
+        run = run + 1 if days[d] else 0
+        best = max(best, run)
+    return best
+
+
+def plural(n, word):
+    return f"{n} {word}" + ("" if n == 1 else "s")
+
+
+def table(*rows):
+    head, *body = ["| " + " | ".join(map(str, r)) + " |" for r in rows]
+    return "\n".join([head, "|" + " :---: |" * len(rows[0]), *body])
+
+
+def overview(sizes, commits, days):
+    active, best_txt = sum(1 for v in days.values() if v), "-"
+    if active:
+        peak = max(days.values())
+        best = max(d for d in days if days[d] == peak)           # latest, on a tie
+        best_txt = f"{peak} on {best:%b} {best.day}"
+    out = table(("Contributions this past year", "Active days", "Longest streak", "Best day"),
+                (f"**{sum(days.values())}**", f"**{active}**", f"**{plural(longest_streak(days), 'day')}**",
+                 f"**{best_txt}**"))
+    code, made = sum(sizes.values()) or 1, sum(commits.values()) or 1
+    names = sorted(set(sizes) | set(commits), key=lambda n: -max(sizes[n] / code, commits[n] / made))[:TOP]
+    names.sort(key=lambda n: (-sizes[n], -commits[n], n))
+    if names:
+        out += "\n\n" + table(("Top languages", "Code", "Commits"),
+                              *((n, percent(sizes[n], code) if sizes[n] else "-", commits[n] or "-") for n in names))
+    return out
+
+
+def update_readme(text):
+    readme = README.read_text()
+    head, rest = readme.split(START, 1)
+    _, tail = rest.split(END, 1)
+    README.write_text(f"{head}{START}\n\n{text}\n\n{END}{tail}")
 
 
 if __name__ == "__main__":
-    if sys.argv[1:] == ["--placeholder"]:
-        draw(Counter(), Counter(), "Loading...")
-    elif len(sys.argv) == 2:
-        sizes, commits = fetch(sys.argv[1])
-        draw(sizes, commits)
-    else:
+    if len(sys.argv) != 2:
         sys.exit(__doc__)
+    update_readme(overview(*fetch(sys.argv[1])))

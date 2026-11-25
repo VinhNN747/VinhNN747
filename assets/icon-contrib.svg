@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="32" height="32" role="img" aria-label="contrib"><title>contrib</title><style>
+.p{shape-rendering:crispEdges}
+@keyframes a{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes tw{0%,100%{opacity:1}50%{opacity:.15}}
+@keyframes ty{0%{opacity:0}1%,90%{opacity:1}91%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.alt{opacity:0}}
+</style><g class="p"><g><path fill="#0e1634" d="M1 0h14v1h-14zM0 1h16v1h-16zM0 2h16v1h-16zM0 3h16v1h-16zM0 4h7v1h-7zM9 4h7v1h-7zM0 5h6v1h-6zM10 5h6v1h-6zM0 6h5v1h-5zM11 6h5v1h-5zM0 7h5v1h-5zM11 7h5v1h-5zM0 8h5v1h-5zM11 8h5v1h-5zM0 9h5v1h-5zM11 9h5v1h-5zM0 10h6v1h-6zM10 10h6v1h-6zM0 11h7v1h-7zM9 11h7v1h-7zM0 12h16v1h-16zM0 13h16v1h-16zM0 14h16v1h-16zM1 15h14v1h-14z"/><path fill="#ffd98a" d="M7 4h2v1h-2zM6 5h4v1h-4zM6 6h4v1h-4z"/><path fill="#4f6cb8" d="M5 6h1v1h-1zM5 7h3v1h-3zM5 8h3v1h-3zM5 9h3v1h-3zM6 10h2v1h-2zM7 11h1v1h-1z"/><path fill="#8fb0f0" d="M10 6h1v1h-1zM8 7h3v1h-3zM8 8h3v1h-3zM8 9h3v1h-3zM8 10h2v1h-2zM8 11h1v1h-1z"/></g></g></svg>
