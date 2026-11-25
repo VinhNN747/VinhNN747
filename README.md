@@ -7,13 +7,13 @@
 
 <table align="center">
   <tr>
-    <td width="50%" align="center" valign="top">
+    <td width="423" align="center" valign="top">
       <h3><img src="assets/icon-about.svg" width="24" align="top" alt=""> About</h3>
       <p><b>Building</b><br>AI Gateway and backend projects</p>
       <p><b>Learning</b><br>AI Agents, LLMs, System Design</p>
       <p><b>Goal</b><br>Backend / AI Engineer</p>
     </td>
-    <td width="50%" align="center" valign="top">
+    <td width="423" align="center" valign="top">
       <h3><img src="assets/icon-stack.svg" width="24" align="top" alt=""> Tech stack</h3>
       <p><b>Backend</b><br><code>Java</code> <code>Spring Boot</code> <code>Python</code> <code>FastAPI</code></p>
       <p><b>Database</b><br><code>PostgreSQL</code> <code>SQL Server</code></p>
