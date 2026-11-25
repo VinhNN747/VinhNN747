@@ -24,6 +24,14 @@ Software Engineering student focused on Backend Development and AI Systems.
   <img src="assets/stack.svg" width="100%" alt="Tech stack: Java, Spring Boot, Python, FastAPI, PostgreSQL, SQL Server, Docker, Git, Linux, Postman">
 </div>
 
+### Overview
+
+<div align="center">
+  <img src="assets/stats.svg" width="100%" alt="Share of code by programming language, and commits in the last 12 months grouped by each repository's main language">
+</div>
+
+<sub>Public repositories only, refreshed daily. Commits cover the last 12 months; each counts toward its repository's main language.</sub>
+
 <br>
 
 <div align="center">

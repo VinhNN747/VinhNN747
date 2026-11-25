@@ -1,0 +1,32 @@
+name: Update stats
+on:
+  schedule:
+    - cron: "17 20 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scripts/**", ".github/workflows/stats.yml"]
+permissions:
+  contents: write
+concurrency: stats
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - run: python scripts/stats.py "$GITHUB_REPOSITORY_OWNER"
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Commit if changed
+        run: |
+          git add assets/stats.svg
+          git diff --cached --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update stats"
+          git pull --rebase
+          git push
