@@ -184,7 +184,6 @@ ICONS = {
     "about": ["#........#", "##......##", "##########", "##########", "##g####g##", "##########", "####pp####", ".########."],
     "stack": ["ssssssssss", "sl.s.s.s.s", "ssssssssss", "..........", "ssssssssss", "sy.s.s.s.s", "ssssssssss", ".........."],
     "contrib": ["....yy....", "...yyyy...", "..dyyyyb..", "..dddbbb..", "..dddbbb..", "..dddbbb..", "...ddbb...", "....db...."],
-    "overview": [".......yy.", ".......yy.", "....bb.yy.", "....bb.yy.", ".w..bb.yy.", ".w..bb.yy.", ".w..bb.yy.", "wwwwwwwwww"],
 }
 PAL = {"#": "#d9803f", "g": "#15131c", "p": "#f2a5a0", "s": "#8d98b8", "l": "#6fd08c", "y": GOLD, "b": "#8fb0f0", "w": CREAM, "d": "#4f6cb8"}
 

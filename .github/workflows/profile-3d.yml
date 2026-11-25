@@ -8,7 +8,7 @@ on:
     paths: [".github/profile-3d.json", ".github/workflows/profile-3d.yml"]
 permissions:
   contents: write
-concurrency: stats
+concurrency: profile-3d
 jobs:
   build:
     runs-on: ubuntu-latest
