@@ -1,20 +1,31 @@
-# Hi, I'm Vinh 👋
+<div align="center">
+  <img src="assets/banner.svg" width="100%" alt="Pixel art desk at dusk: the name VINH in the night sky, a cat, a monitor with code and a blinking server rack">
+</div>
+
+### Hi, I'm Vinh
 
 Software Engineering student focused on Backend Development and AI Systems.
 
-## 🚀 About Me
+```text
+   /\_/\        vinh@github
+  ( o.o )       ------------------------------------------
+   > ^ <        Role       Software Engineering student
+  /     \       Building   AI Gateway & backend projects
+ |       |      Learning   AI Agents, LLMs, System Design
+ |  | |  |      Backend    Java, Spring Boot, Python, FastAPI
+ (__|_|__)_/    Database   PostgreSQL, SQL Server
+                Tools      Git, Docker, Postman, Linux
+                Goal       Backend / AI Engineer
+```
 
-- 🔭 Currently working on AI Gateway & Backend projects
-- 🌱 Learning AI Agents, LLMs and System Design
-- 💻 Backend: Java, Spring Boot, Python, FastAPI
-- 🗄️ Database: PostgreSQL, SQL Server
-- ⚙️ Tools: Git, Docker, Postman, Linux
-- 🎯 Goal: Backend / AI Engineer
+### Inventory
 
-## 🛠 Tech Stack
+<div align="center">
+  <img src="assets/stack.svg" width="100%" alt="Tech stack: Java, Spring Boot, Python, FastAPI, PostgreSQL, SQL Server, Docker, Git, Linux, Postman">
+</div>
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+<br>
+
+<div align="center">
+  <img src="assets/footer.svg" width="100%" alt="A pixel cat walking along a shelf">
+</div>
